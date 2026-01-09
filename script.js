@@ -1,9 +1,9 @@
 let tmdbKey;
 const tmdbBaseUrl = 'https://api.themoviedb.org/3/';
 
-// Initialize API key
+// Initialize API key from Vercel backend
 const initializeApp = async () => {
-  const response = await fetch('/api/key');
+  const response = await fetch('https://film-finder-api.vercel.app/api/key');
   const data = await response.json();
   tmdbKey = data.apiKey;
 };

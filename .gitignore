@@ -19,3 +19,6 @@ temp/
 # Node
 node_modules
 node_modules/.*
+
+# Backend files (used only for Vercel, not GitHub Pages)
+server.js
