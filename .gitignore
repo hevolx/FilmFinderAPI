@@ -1,0 +1,21 @@
+# Environment variables
+.env
+
+# IDEs and editors
+.vscode/
+*~
+
+# Optional npm cache directory
+.npm
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Temporary files
+.git
+
+# Node
+node_modules
+node_modules/.*
