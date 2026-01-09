@@ -15,25 +15,36 @@ const getGenres = async () => {
   const urlToFetch = `${tmdbBaseUrl}${genreRequestEndpoint}${requestParams}`;
 
   try {
-    console.log(`urlToFetch: ${urlToFetch}`)
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
-      console.log(`jsonResponse: ${jsonResponse}`);
       const genres = jsonResponse.genres;
-      console.log(`genres: ${genres}`);
       return genres;
     }
   } catch (error) {
-    //console.error(error);
+    console.log(error);
   }
 };
 
-const getMovies = () => {
+const getMovies = async () => {
   const selectedGenre = getSelectedGenre();
   const discoverMovieEndpoint = 'discover/movie';
   const requestParams = `?api_key=${tmdbKey}&with_genres=${selectedGenre}`;
+  const urlToFetch = `${tmdbBaseUrl}${discoverMovieEndpoint}${requestParams}`
+
+  try {
+    const response = await fetch(urlToFetch);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const movies = jsonResponse.results;
+      return movies;
+    }
+  } catch (error) {
+    console.log(error)
+  }
 };
+
+initializeApp().then(() => getMovies())
 
 const getMovieInfo = () => {};
 
